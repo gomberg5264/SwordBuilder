@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("/assets/img/hema-splash-01.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#swordCanvas {
+    width   : 100%;
+    height  : 100%;
+    touch-action: none;
+}
+
+#swordCanvas:focus {
+    outline: none;
+}

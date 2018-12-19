@@ -1,0 +1,36 @@
+<div class="bladeSelect">
+    <p>Blades: +x </p>
+</div>
+
+<div class="guardSelect">
+    <p>Guards: +y </p>
+</div>
+
+<canvas id="swordCanvas" (mousedown)="mouseDrag($event)" (mousemove)="mouseMove($event)" (mouseleave)="mouseDrop($event)"
+    (mouseup)="mouseDrop($event)" ></canvas>
+
+<div class="gripSelect">
+    <p>Handles: -x</p>
+</div>
+
+<div class="pommelSelect">
+    <p>Pommels: +z</p>
+</div>
+
+<div class="tools">
+    <div (click)="cameraRotate(7.5,0,0)">Rotate camera X + </div>
+    <div (click)="cameraRotate(-7.5,0,0)">Rotate camera X - </div>
+    <div (click)="cameraRotate(0,7.5,0)">Rotate camera Y + </div>
+    <div (click)="cameraRotate(0,-7.5,0)">Rotate camera Y - </div>
+    <div (click)="cameraRotate(0,0,7.5)">Rotate camera Z + </div>
+    <div (click)="cameraRotate(0,0,-7.5)">Rotate camera Z - </div>
+
+    <div (click)="cameraMove(1,0,0)">Move camera X + </div>
+    <div (click)="cameraMove(-1,0,0)">Move camera X - </div>
+    <div (click)="cameraMove(0,1,0)">Move camera Y + </div>
+    <div (click)="cameraMove(0,-1,0)">Move camera Y - </div>
+    <div (click)="cameraMove(0,0,1)">Move camera Z + </div>
+    <div (click)="cameraMove(0,0,-1)">Move camera Z - </div>
+</div>
+
+<router-outlet></router-outlet>
