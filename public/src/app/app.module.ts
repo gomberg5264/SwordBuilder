@@ -9,12 +9,16 @@ import { PartModalComponent } from './sword-builder/partModal/partModal.componen
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './database.service';
 import { SwordBuilderComponent } from './sword-builder/sword-builder.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       PartModalComponent,
-      SwordBuilderComponent
+      SwordBuilderComponent,
+      LandingPageComponent,
+      PageNotFoundComponent
    ],
    imports: [
       BrowserModule,

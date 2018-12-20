@@ -1,87 +1,33 @@
-.tools{
-    position: absolute;
-    height: 120px;
-    width: 50%;
-    bottom: 0%;
-    left:25%;
-    background-color: black;
-    overflow: scroll;
-}
-
-.tools div {
-    /* height: 30px; */
-    color: white;
-    padding:5px;
-    margin:5px;
-    border: 1px white solid;
-    display: inline-block;
-}
-
-.bladeSelect, .guardSelect, .gripSelect, .pommelSelect {
-    height: 200px;
-    width: 300px;
-    position: absolute;
-    background-image: url('/assets/img/sword-img-1.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.bladeSelect p, .guardSelect p, .gripSelect p, .pommelSelect p {
-    padding: 10px;
-    font-weight: bolder;
-    font-size: 200%;
-    position: relative;
-    color:white;
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: 2px;
-}
-
-.bladeSelect {
-    /* background-color: red; */
-    top: 0%;
-    left: 0%;
-    clip-path: ellipse(130px 140px at 10% 20%);
-    text-align: left;
-    vertical-align: top;
-}
-
-.guardSelect {
-    /* background-color: blue; */
-    top:0%;
-    right: 0%;
-    clip-path: ellipse(130px 140px at 90% 20%);
-    text-align: right;
-    vertical-align: top;
-}
-
-.gripSelect {
-    /* background-color: green; */
-    bottom: 0%;
-    right: 0%;
-    clip-path: ellipse(130px 140px at 90% 80%);
-    text-align: right;
-    vertical-align: bottom;
-}
-
-.pommelSelect {
-    /* background-color: yellow; */
-    bottom:0%;
-    left: 0%;
-    clip-path: ellipse(130px 140px at 10% 80%);
-    text-align: left;
-    vertical-align: bottom;
-}
-
-.part-modal {
-    display: none;
+#navBar {
     position: fixed;
-    z-index: 1;
-    left:0;
-    top:0;
+    top: 0;
+    z-index: 999;
+    height: 60px;
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(61, 65, 70);
+    color: white;
+    vertical-align: middle;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+
+#navBar * {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#menuBtn {
+    max-height: 40px;
+    max-width: 40px;
+    margin-right: 10px;
+}
+
+#logo {
+    max-height: 50px;
+}
+
+#content {
+    color:black;
 }

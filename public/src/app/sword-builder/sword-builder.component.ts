@@ -8,7 +8,7 @@ import { SwordRenderService } from '../sword-render.service';
 })
 export class SwordBuilderComponent implements OnInit {
 
-  showingModal="hidden";
+  showingModal:String;
   modalSubject:String;
   trackingMouse = false;
 
@@ -24,33 +24,33 @@ export class SwordBuilderComponent implements OnInit {
       rot_z: 127,
     },
     armingSwordBlade:{
-      pos_x: 21,
-      pos_y: 33,
+      pos_x: 24,
+      pos_y: 17,
       pos_z: 21,
-      rot_x: -22,
-      rot_y: 15,
-      rot_z: 194,
+      rot_x: -8,
+      rot_y: 22,
+      rot_z: 165,
     },
     armingSwordGuard:{
-      pos_x: 11,
+      pos_x: 13,
       pos_y: 0,
-      pos_z: 12,
+      pos_z: 11,
       rot_x: 0,
       rot_y: 22,
       rot_z: 180,
     },
     armingSwordHilt:{
-      pos_x: 11,
-      pos_y: 0,
-      pos_z: 12,
+      pos_x: 8,
+      pos_y: -3,
+      pos_z: 7,
       rot_x: 0,
       rot_y: 22,
       rot_z: 180,
     },
     armingSwordPommel:{
-      pos_x: 11,
-      pos_y: 0,
-      pos_z: 12,
+      pos_x: 4,
+      pos_y: -6,
+      pos_z: 3,
       rot_x: 0,
       rot_y: 22,
       rot_z: 180,
@@ -67,20 +67,21 @@ export class SwordBuilderComponent implements OnInit {
     "type-a-pommel.obj"
   ]
 
-  constructor(private swordServ: SwordRenderService) { }
+  constructor(private _swordServ: SwordRenderService) { }
   
   ngOnInit() {
+    this.showingModal="hidden";
     window.addEventListener('DOMContentLoaded', () => {
-      this.swordServ.createScene(this.canvasElementID, this.swordGeo);
+      this._swordServ.createScene(this.canvasElementID, this.swordGeo);
     });
   }
 
   cameraRotate(x, y, z) {
-    this.swordServ.cameraRotate(x, y, z);
+    this._swordServ.cameraRotate(x, y, z);
   }
 
   cameraMove(x, y, z) {
-    this.swordServ.cameraMove(x, y, z);
+    this._swordServ.cameraMove(x, y, z);
   }
 
   mouseDrag($event) {
@@ -91,47 +92,50 @@ export class SwordBuilderComponent implements OnInit {
 
   mouseMove($event) {
     if (this.trackingMouse) {
-      // console.log("X:"+$event.x);
-      // console.log("Y:"+$event.y);
       let dist = $event.x - this.mousePos.x - $event.y + this.mousePos.y;
       this.mousePos.x = $event.x;
       this.mousePos.y = $event.y;
-      this.swordServ.swordManualRotate(dist);
+      this._swordServ.swordManualRotate(dist);
     }
   }
 
   mouseDrop($event) {
     this.trackingMouse = false;
-    this.swordServ.spinControl();
-    // this.mousePos.x=$event.x;
-    // this.mousePos.y=$event.y;
+    this._swordServ.spinControl();
   }
 
   hideModal(status:string){
     this.showingModal=status;
+    this._swordServ.cameraSet(this.cameraPresets.armingSwordFull);
   }
 
   changeBlade(blade) {
     this.swordGeo[0] = blade;
-    this.swordServ.swordLoader(this.swordGeo);
     this.modalSubject="blade"
     this.showingModal="block"
-    this.swordServ.cameraSet(this.cameraPresets.armingSwordFull);
+    this._swordServ.cameraSet(this.cameraPresets.armingSwordBlade);
   }
-
+  
   changeGuard(guard) {
     this.swordGeo[1] = guard;
-    this.swordServ.swordLoader(this.swordGeo);
-    this.swordServ.cameraSet(this.cameraPresets.armingSwordGuard);
+    this.modalSubject="guard"
+    this.showingModal="block"
+    this._swordServ.cameraSet(this.cameraPresets.armingSwordGuard);
   }
 
   changeGrip(grip) {
     this.swordGeo[2] = grip;
-    this.swordServ.swordLoader(this.swordGeo);
+    this.modalSubject="grip"
+    this.showingModal="block"
+    this._swordServ.cameraSet(this.cameraPresets.armingSwordHilt);
+
   }
 
   changePommel(pommel) {
     this.swordGeo[3] = pommel;
-    this.swordServ.swordLoader(this.swordGeo);
+    this.modalSubject="pommel"
+    this.showingModal="block"
+    this._swordServ.cameraSet(this.cameraPresets.armingSwordPommel);
+
   }
 }

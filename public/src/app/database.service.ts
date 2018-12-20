@@ -17,6 +17,7 @@ export class DatabaseService {
         minLength: 30,
         keyWords:["renaissance","16th century","cut-and-thrust","basket hilt","complex guard","saxony"],
         imageURL:"",
+        geometrySrc:"cav-sidesword-blade.obj",
       },
       {
         swordType:"armingSword",
@@ -28,6 +29,7 @@ export class DatabaseService {
         minLength: 33,
         keyWords:["crusades","middle ages","medieval","gaddhjalt","chopper","arming","knightly","10th century", "11th century"],
         imageURL:"",
+        geometrySrc:"type-10-blade.obj",
       },
   ]
 
@@ -37,25 +39,57 @@ export class DatabaseService {
       name:"Oakeshott Style 1 crossguard",
       description:"A 'Spike hilt', disctinct from the stout Viking Age sword guards that preceded it, 'gaddhjalt' was common in the 10th and 11th centuries",
       keyWords:["crusades","middle ages","medieval","gaddhjalt","chopper","arming","knightly","10th century", "11th century"],
-      imageURL:""
+      imageURL:"",
+      geometrySrc:"style-1-guard.obj",
     },
     {
       swordType:"armingSword",
       name:"Saxony-style basket hilt",
       description:"A late renaissance development, this style of guard offers superb hand protection without overly restricting access to the grip.",
       keyWords:["renaissance","16th century","cut-and-thrust","basket hilt","complex guard","saxony","schiavona"],
-      imageURL:""
+      imageURL:"",
+      geometrySrc:"cav-sidesword-guard.obj",
     },
   ]
 
   private gripDB = [
-    {},
-    {}
+    {
+      swordType:"armingSword",
+      name:"Single-handed waised grip",
+      length:3,
+      material:"leather",
+      description:"",
+      keyWords:[],
+      imageURL:"",
+      geometrySrc:"type-10-grip.obj"
+    },
+    {
+      swordType:"armingSword",
+      name:"Ornate wire wrap",
+      length:4,
+      material:"metal",
+      description:"Beautiful, but rough to the touch. Wear gloves!",
+      keyWords:[],
+      imageURL:"",
+      geometrySrc:"cav-sidesword-grip.obj"
+    }
   ]
 
   private pommelDB = [
-    {},
-    {}
+    {
+      swordType:"armingSword",
+      name:"Oakeshott Type A Pommel",
+      description:"Extremely wide pommels such as this one originate in migration era swords and would only allow for a hammer grip on the sword.",
+      keyWords:[],
+      geometrySrc:"type-a-pommel.obj"
+    },
+    {
+      swordType:"armingSword",
+      name:"Elongated octohedron",
+      description:"Narrow pommel facilitates extended grip. Engraved motifs on the facets.",
+      keyWords:[],
+      geometrySrc:"cav-sidesword-pommel.obj"
+    }
   ]
 
   constructor(
@@ -81,25 +115,24 @@ export class DatabaseService {
   makeNewPremade(data){
 
   }
-
+/* *************************** */
   getAllBlades(){
-
+      return {blades: this.bladeDB};
   }
 
   getBladeDetails(id){
 
   }
-
+  /* *************************** */
   getAllGuards(){
-
+    return {guards: this.guardDB};
   }
-
   getGuardDetals(id){
-
+    
   }
-
+  /* *************************** */
   getAllGrips(){
-
+    return {grips: this.gripDB};
   }
 
   getGripDetails(id){
@@ -107,7 +140,7 @@ export class DatabaseService {
   }
 
   getAllPommels(){
-
+    return {pommels: this.pommelDB};
   }
 
   getPommelDetails(id){

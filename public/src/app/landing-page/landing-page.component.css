@@ -1,0 +1,21 @@
+#landing {
+    height: 100%;
+    width: 100%;
+    padding-top: 20%;
+    text-align: center;
+}
+h2 {
+    margin: 40px;
+}
+a {
+    text-decoration: none;
+    padding: 20px;
+    border: 1px solid rgb(61, 65, 70);
+    color: rgb(61, 65, 70);
+    background: none;
+    font-weight: bolder;
+}
+
+a:hover {
+    box-shadow: 10px 5px 10px rgb(61, 65, 70);
+}

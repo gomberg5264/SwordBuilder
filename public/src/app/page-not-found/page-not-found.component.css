@@ -1,0 +1,18 @@
+#page-not-found {
+    height: 100%;
+    width: 100%;
+    padding-top: 20%;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(61, 65, 70);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+}
+
+a{
+    font-size: 150%;
+    margin-top: 10px;
+}
+

@@ -1,7 +1,12 @@
-<div class="part-modal">
-  <div class="modal-content">
-    <h3>Choose a {{partType}}</h3>
-    
-    <button (click)="closeModal()" class="closeModalBtn">CLOSE</button>
+<div class="part-choices">
+  <h3>Choose a {{partType}}</h3>
+  <div id="partList">
+    <div *ngFor="let part of partList" class="swordPartDetails" [class.bladeContent]="listingBlades" (click)="fillOut(part.geometrySrc)">
+      <h4>{{part.name}}</h4>
+    </div>
   </div>
+
+  <button (click)="closeModal()" class="closeModalBtn">
+    <h3>CLOSE</h3>
+  </button>
 </div>

@@ -139,7 +139,10 @@ export class SwordRenderService {
             this.sword.swordGeo[0],
             (object) => {
                 this.scene.remove(this.sword.parts[0]);
-                let material = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+                let material = new THREE.MeshPhongMaterial({ 
+                    color: 0xaaaaaa
+                });
+                material.flatShading=false;
                 object.children[0].material = material;
                 this.sword.parts[0] = object.children[0];
                 this.scene.add(this.sword.parts[0]);
@@ -150,15 +153,13 @@ export class SwordRenderService {
                         this.sword.parts[i] = part.children[0];
                         this.scene.add(this.sword.parts[i]);
                     });
-                    console.log(this.sword.parts);
-                    
                 }
             }
         )
     }
 
     animate(): void {
-        console.log("window.innerHeight: " + window.innerWidth+"window.innerHeight: " +window.innerHeight);
+        // console.log("window.innerHeight: " + window.innerWidth+"window.innerHeight: " +window.innerHeight);
         this.render();
         window.addEventListener('resize', () => {
             this.resize();

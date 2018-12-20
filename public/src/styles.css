@@ -3,6 +3,23 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    vertical-align: top;
+    /* user-select: none; */
+}
+
+@font-face {
+    font-family: "Elixir";
+    src: url('/assets/fonts/elixir_medium-webfont.woff')
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Elixir';
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin-left: 20px;
+    letter-spacing: 5px;
 }
 
 body {
