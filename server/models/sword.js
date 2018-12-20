@@ -6,8 +6,18 @@ let KeyWordSchema = new mongoose.Schema({
 },{timestamps:true});
 
 let FinishSchema = new mongoose.Schema({
-    name:{},
-    description:{},
+    name:{
+        type: String,
+        maxlength: 50,
+        required: true
+    },
+    description:{
+        type: String,
+        maxlength: 500,
+    },
+    material:{
+        type: String
+    },
     cost:{
         type:Number,
         required:true,
@@ -93,6 +103,9 @@ let GripSchema = new mongoose.Schema({
         required:true,
         minLength:3,
         maxLength:50,
+    },
+    length:{
+        type:Number,
     },
     //color will be here too - for now
     material:{

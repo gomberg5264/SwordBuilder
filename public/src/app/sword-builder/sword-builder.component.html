@@ -1,0 +1,36 @@
+<div class="bladeSelect" (click)="changeBlade('cav-sidesword-blade.obj')">
+  <p>Blades: +x </p>
+</div>
+
+<div class="guardSelect" (click)="changeGuard('cav-sidesword-guard.obj')">
+  <p>Guards: +y </p>
+</div>
+
+<canvas id="swordCanvas" (mousedown)="mouseDrag($event)" (mousemove)="mouseMove($event)" (mouseleave)="mouseDrop($event)"
+  (mouseup)="mouseDrop($event)" ></canvas>
+
+<div class="gripSelect" (click)="changeGrip('cav-sidesword-grip.obj')">
+  <p>Handles: -x</p>
+</div>
+
+<div class="pommelSelect" (click)="changePommel('cav-sidesword-pommel.obj')">
+  <p>Pommels: +z</p>
+</div>
+
+<div class="tools">
+  <div (click)="cameraRotate(7.5,0,0)">R X + </div>
+  <div (click)="cameraRotate(-7.5,0,0)">R X - </div>
+  <div (click)="cameraRotate(0,7.5,0)">R Y + </div>
+  <div (click)="cameraRotate(0,-7.5,0)">R Y - </div>
+  <div (click)="cameraRotate(0,0,7.5)">R Z + </div>
+  <div (click)="cameraRotate(0,0,-7.5)">R Z - </div>
+<br>
+  <div (click)="cameraMove(1,0,0)">M X + </div>
+  <div (click)="cameraMove(-1,0,0)">M X - </div>
+  <div (click)="cameraMove(0,1,0)">M Y + </div>
+  <div (click)="cameraMove(0,-1,0)">M Y - </div>
+  <div (click)="cameraMove(0,0,1)">M Z + </div>
+  <div (click)="cameraMove(0,0,-1)">M Z - </div>
+</div>
+
+<app-partModal class="part-modal" [style.display]="showingModal" [partType]="modalSubject" (modalStat)="hideModal($event)"> </app-partModal>

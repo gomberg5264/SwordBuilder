@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SwordRenderService } from './sword-render.service';
+import { SwordRenderService } from '../sword-render.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-sword-builder',
+  templateUrl: './sword-builder.component.html',
+  styleUrls: ['./sword-builder.component.css']
 })
-export class AppComponent implements OnInit {
+export class SwordBuilderComponent implements OnInit {
+
   showingModal="hidden";
   modalSubject:String;
   trackingMouse = false;
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit {
   ]
 
   constructor(private swordServ: SwordRenderService) { }
-
+  
   ngOnInit() {
     window.addEventListener('DOMContentLoaded', () => {
       this.swordServ.createScene(this.canvasElementID, this.swordGeo);
@@ -133,5 +134,4 @@ export class AppComponent implements OnInit {
     this.swordGeo[3] = pommel;
     this.swordServ.swordLoader(this.swordGeo);
   }
-
 }
