@@ -25,32 +25,32 @@ export class SwordRenderService {
         rot_y: 0,
         rot_z: 0,
         swordGeo: [
-            "type-10-blade.obj",
-            "style-1-guard.obj",
-            "type-10-grip.obj",
-            "type-a-pommel.obj"
+            "","","",""
         ],
+        gripOffset: 4.1,
         parts: [this.blade,this.guard, this.grip, this.pommel]
     };
     
     spinning = true;
     
     cameraPos = {
-        pos_x: 0,
-        pos_y: 13,
-        pos_z: 24,
-        rot_x: 0,
-        rot_y: 0,
-        rot_z: 127,
+        pos_x: 4,
+        pos_y: -5,
+        pos_z: 15,
+        rot_x: 30,
+        rot_y: 15,
+        rot_z: -59,
     }
 
     constructor() {
-        this.loader.setPath('assets/img/');
+        this.loader.setPath('assets/geometry/');
     }
 
-    createScene(elementID: string, swordGeo: string[]) {
+    createScene(elementID: string, swordGeo: string[],gripOffset=0) {
 
         this.canvas = <HTMLCanvasElement>document.getElementById(elementID);
+        this.sword.swordGeo=swordGeo;
+        this.sword.gripOffset=gripOffset;
 
         this.scene = new THREE.Scene();
 
@@ -84,7 +84,9 @@ export class SwordRenderService {
         /* ---------------------------------------- */
 
 
-        this.swordLoader(this.sword.swordGeo);
+        this.swordLoader(this.sword.swordGeo,4.05);
+        console.log("starting: "+this.sword.gripOffset);
+        
         this.animate();
         /* ---------------------------------------- */
         // return { message: "Done setting up scene" }
@@ -131,17 +133,20 @@ export class SwordRenderService {
             },3000);
     }
 
-    swordLoader(swordGeo){
+    swordLoader(swordGeo,gripOffset=null){
         if (swordGeo[0]!=this.sword.swordGeo[0]){
             this.sword.swordGeo[0]=swordGeo[0]
         }
+        if (gripOffset!=null){
+            this.sword.gripOffset=gripOffset;
+        }
         this.loader.load(
-            this.sword.swordGeo[0],
+            swordGeo[0],
             (object) => {
                 this.scene.remove(this.sword.parts[0]);
-                let material = new THREE.MeshPhongMaterial({ 
-                    color: 0xaaaaaa
-                });
+                let material = new THREE.MeshPhysicalMaterial({ 
+                    color: 0x888888
+                });                
                 material.flatShading=false;
                 object.children[0].material = material;
                 this.sword.parts[0] = object.children[0];
@@ -150,7 +155,18 @@ export class SwordRenderService {
                     this.loader.load(swordGeo[i], (part) => {
                         this.scene.remove(this.sword.parts[i]);
                         part.children[0].material = material;
+                        this.grip=part.children[0];
                         this.sword.parts[i] = part.children[0];
+                        if (i==2){
+                            let leather = new THREE.MeshLambertMaterial({color:0x1e1e1e});
+                            part.children[0].material = leather;
+                        }
+                        if (i==3){
+                            this.grip.position.y=-this.sword.gripOffset;
+                            console.log(this.sword.gripOffset);
+                            
+                            console.log(this.grip);
+                        }
                         this.scene.add(this.sword.parts[i]);
                     });
                 }

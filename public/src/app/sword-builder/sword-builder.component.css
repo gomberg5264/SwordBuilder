@@ -6,7 +6,7 @@
 }
 
 .tools{
-    display: none;
+    /* display: none; */
     z-index: 800;
     position: absolute;
     height: 120px;
@@ -107,6 +107,6 @@
     z-index: 1;
     left:0;
     height: 100%;
-    width: 800px;
+    width: 60%;
     top:0;
 }

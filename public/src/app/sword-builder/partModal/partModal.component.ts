@@ -50,11 +50,17 @@ export class PartModalComponent implements OnChanges {
     else if (this.partType=="guard"){idx=1}
     else if (this.partType=="grip"){idx=2}
     else {idx=3};
-    this.currentSetup[`${idx}`]=file;
+    this.currentSetup[`${idx}`]=file.geometrySrc;
 
 
     console.log(this.currentSetup);
-    this._swordServ.swordLoader(this.currentSetup);
+    let offset = null;
+    if (this.partType=="grip"){
+      offset=file.gripOffset;
+      console.log(offset);
+      
+    }
+    this._swordServ.swordLoader(this.currentSetup,offset);
     
   }
   closeModal(){

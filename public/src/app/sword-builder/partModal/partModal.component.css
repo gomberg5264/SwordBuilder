@@ -1,7 +1,7 @@
 
 .part-choices {
     background-color: rgb(77, 86, 111);
-    padding: 10% 15%;
+    padding: 13% 15%;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -53,8 +53,23 @@
     width: 100%;
     /* border: 1px wheat dotted; */
     text-align: left;
+    color: white;
+}
+
+.swordPartDetails img {
+    width: 30%;
+    display: inline-block;
+}
+
+.swordPartDetails p {
+    width: 60%;
+    display: inline-block;
 }
 
 .bladeContent{
-    background-color: red;
+    /* background-color: red; */
+}
+
+.bladeContent img {
+    width: 100%;
 }

@@ -16,17 +16,17 @@ export class SwordBuilderComponent implements OnInit {
 
   cameraPresets = {
     armingSwordFull:{
-      pos_x: 0,
-      pos_y: 13,
-      pos_z: 24,
-      rot_x: 0,
-      rot_y: 0,
-      rot_z: 127,
+      pos_x: 4,
+      pos_y: -5,
+      pos_z: 15,
+      rot_x: 30,
+      rot_y: 15,
+      rot_z: -59,
     },
     armingSwordBlade:{
       pos_x: 24,
       pos_y: 17,
-      pos_z: 21,
+      pos_z: 22,
       rot_x: -8,
       rot_y: 22,
       rot_z: 165,
@@ -40,17 +40,17 @@ export class SwordBuilderComponent implements OnInit {
       rot_z: 180,
     },
     armingSwordHilt:{
-      pos_x: 8,
-      pos_y: -3,
+      pos_x: 9,
+      pos_y: -4,
       pos_z: 7,
       rot_x: 0,
       rot_y: 22,
       rot_z: 180,
     },
     armingSwordPommel:{
-      pos_x: 4,
-      pos_y: -6,
-      pos_z: 3,
+      pos_x: 6,
+      pos_y: -8,
+      pos_z: 5,
       rot_x: 0,
       rot_y: 22,
       rot_z: 180,
@@ -61,11 +61,12 @@ export class SwordBuilderComponent implements OnInit {
 
   //default sword
   swordGeo = [
-    'type-10-blade.obj',
-    'style-1-guard.obj',
-    "type-10-grip.obj",
-    "type-a-pommel.obj"
+    'blade-oak-type-10.obj',
+    'guard-oak-style-1.obj',
+    'grip-waisted-armingsword.obj',
+    'pommel-oak-type-a.obj',
   ]
+  gripOffset = 0;
 
   constructor(private _swordServ: SwordRenderService) { }
   

@@ -1,8 +1,10 @@
 <div class="part-choices">
   <h3>Choose a {{partType}}</h3>
   <div id="partList">
-    <div *ngFor="let part of partList" class="swordPartDetails" [class.bladeContent]="listingBlades" (click)="fillOut(part.geometrySrc)">
+    <div *ngFor="let part of partList" class="swordPartDetails" [class.bladeContent]="listingBlades" (click)="fillOut(part)">
       <h4>{{part.name}}</h4>
+      <img src="/assets/img/{{part.imageURL}}" alt="">
+      <p>{{part.description}}</p>
     </div>
   </div>
 
