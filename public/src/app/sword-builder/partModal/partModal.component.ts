@@ -64,7 +64,7 @@ export class PartModalComponent implements OnChanges {
     
   }
   closeModal(){
-    this.partList=[];
+    // this.partList=[];
     this.currentSetup=this.resetSetup;
     this.modalStat.emit('none');
   }

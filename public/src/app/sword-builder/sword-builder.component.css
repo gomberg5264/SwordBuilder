@@ -6,7 +6,7 @@
 }
 
 .tools{
-    /* display: none; */
+    display: none;
     z-index: 800;
     position: absolute;
     height: 120px;
