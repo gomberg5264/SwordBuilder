@@ -1,0 +1,11 @@
+<div class="mainWrapper">
+  <h2>Admin tools</h2>
+  <div *ngFor="let part of partTypeList">
+    <h3>{{part}}s</h3>
+    <div class="partToolsWrap">
+      <app-partMaker [partType]="part" class="left"></app-partMaker>
+      <app-partLister [partType]="part" class="right"></app-partLister>
+    </div>
+  </div>
+
+</div>

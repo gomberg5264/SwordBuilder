@@ -1,0 +1,80 @@
+<div class="partmaker">
+
+  <h4>Create a new {{ partType }}</h4>
+  <form>
+    <span *ngIf="errors.database">{{errors.database}}</span>
+    <h5>Name</h5>
+    <input type="text" name="currentPart.name" [(ngModel)]="currentPart.name" autocomplete="off">
+    <span *ngIf="errors.name">{{errors.name}}</span>
+
+    <h5>Description</h5>
+    <textarea name="currentPart.description" [(ngModel)]="currentPart.description" rows="10" style="resize: none;width: 100%"></textarea>
+    <span *ngIf="errors.description">{{errors.description}}</span>
+
+    <h5>Sword Type</h5>
+    <select name="currentPart.swordType" [(ngModel)]="currentPart.swordType">
+      <option value="armingSword">Arming Sword</option>
+      <option value="longsword">Longsword</option>
+      <option value="sabre">Sabre</option>
+      <option value="greatsword">Greatsword</option>
+    </select>
+    <span *ngIf="errors.swordType">{{errors.swordType}}</span>
+
+
+    <h5>Cost</h5>
+    <input type="number" name="currentPart.cost" [(ngModel)]="currentPart.cost">
+
+    <div *ngIf="partType=='blade'">
+      <h5>Purpose</h5>
+      <select name="purpose">
+        <option value="cutting">Test cutting</option>
+        <option value="hema">HEMA Sparring</option>
+        <option value="sca">SCA armoured combat</option>
+        <option value="stage">Stage combat</option>
+      </select>
+
+      <h5>Maximum Length</h5>
+      <input type="number" name="currentPart.maxLength" [(ngModel)]="currentPart.maxLength">
+      <span *ngIf="errors.maxLength">{{errors.maxLength}}</span>
+      <h5>Minimum Length</h5>
+      <input type="number" name="currentPart.minLength" [(ngModel)]="currentPart.minLength">
+      <span *ngIf="errors.minLength">{{errors.minLength}}</span>
+
+    </div>
+
+    <div *ngIf="partType=='grip'">
+      <h5>Grip Length</h5>
+      <input type="number" name="currentPart.gripLength" [(ngModel)]="currentPart.gripLength">
+      <span *ngIf="errors.gripLength">{{errors.gripLength}}</span>
+
+      <h5>Grip Material</h5>
+      <select name="currentPart.material" [(ngModel)]="currentPart.material">
+        <option value="leather" selected="selected">Leather</option>
+        <option value="half wrap">Leather with wire half-wrap</option>
+        <option value="simple wire">Simple wire wrap</option>
+        <option value="elaborate wire">Decorative wire wrap</option>
+      </select>
+    </div>
+
+
+    <h5>Keywords</h5>
+    <ul>
+      <li *ngFor="let keyword of currentPart.keyWords">{{keyword}}</li>
+    </ul>
+    <span *ngIf="errors.keyWords">{{errors.keyWords}}</span>
+
+    <input type="text" name="currentKeyword" [(ngModel)]="currentKeyword">
+    <span *ngIf="errors.currentKeyword">{{errors.currentKeyword}}</span>
+    <button type="button" (click)=addKeyWord()>Add keyword</button>
+    <button type="button">Clear keywords</button>
+
+    <h5>Image</h5>
+    <input type="text" name="currentPart.imageURL" [(ngModel)]="currentPart.imageURL">
+    <span *ngIf="errors.imageURL">{{errors.imageURL}}</span>
+
+    <h5>Model</h5>
+    <input type="text" name="currentPart.geometrySrc" [(ngModel)]="currentPart.geometrySrc">
+    <span *ngIf="errors.geometrySrc">{{errors.geometrySrc}}</span>
+  </form>
+  <button type="button" (click)=submitPart()>Submit {{ partType }}</button>
+</div>

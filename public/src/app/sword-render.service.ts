@@ -14,6 +14,7 @@ export class SwordRenderService {
     private keyLight: THREE.DirectionalLight;
     private fillLight: THREE.DirectionalLight;
     private backLight: THREE.DirectionalLight;
+    
     /* ****** GEOMETRY SETUP ****** */
     loader = new THREE.OBJLoader();
     private blade: THREE.Mesh;
@@ -63,6 +64,8 @@ export class SwordRenderService {
             canvas: this.canvas,
             alpha: true,
             antialias: true,
+            //<*> set up a conditional for the moment of saving the render to file.
+            preserveDrawingBuffer:false,
         });
         this.renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -143,17 +146,24 @@ export class SwordRenderService {
         this.loader.load(
             swordGeo[0],
             (object) => {
+                console.log("blade object: ", swordGeo[0]);
+                
                 this.scene.remove(this.sword.parts[0]);
                 let material = new THREE.MeshPhysicalMaterial({ 
                     color: 0x888888
                 });                
                 material.flatShading=false;
+                console.log(object);
                 object.children[0].material = material;
                 this.sword.parts[0] = object.children[0];
                 this.scene.add(this.sword.parts[0]);
                 for (let i = 1; i < swordGeo.length; i++) {
                     this.loader.load(swordGeo[i], (part) => {
+                        console.log("local part:"+ swordGeo[i]);
+                        
                         this.scene.remove(this.sword.parts[i]);
+                        console.log(part);
+
                         part.children[0].material = material;
                         this.grip=part.children[0];
                         this.sword.parts[i] = part.children[0];

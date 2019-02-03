@@ -71,9 +71,11 @@ export class SwordBuilderComponent implements OnInit {
   constructor(private _swordServ: SwordRenderService) { }
   
   ngOnInit() {
+    
     this.showingModal="hidden";
+    this._swordServ.createScene(this.canvasElementID, this.swordGeo);
     window.addEventListener('DOMContentLoaded', () => {
-      this._swordServ.createScene(this.canvasElementID, this.swordGeo);
+      console.log("INIT on swordbuilder");
     });
   }
 

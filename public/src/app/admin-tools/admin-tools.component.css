@@ -1,0 +1,37 @@
+.mainWrapper{
+    max-width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:60px;
+    /* overflow: scroll; */
+}
+
+.mainWrapper h2, .mainWrapper h3{
+    font-size: 200%;
+    text-align: center;
+    margin-top:30px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.mainWrapper h3{
+    border-top: 1px solid black;
+    padding-top: 30px;
+    text-transform: capitalize;
+}
+
+#content{
+    padding-top:60px;
+    overflow: auto;
+}
+
+.left, .right {
+    display: inline-block;
+    width:42%;
+    border: 1px red solid;
+}
+
+.partToolsWrap{
+    display: flex;
+    justify-content: space-evenly;
+}

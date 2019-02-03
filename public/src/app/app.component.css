@@ -19,15 +19,39 @@
 }
 
 #menuBtn {
+    float: right;
+}
+
+#menuBtn img{
     max-height: 40px;
     max-width: 40px;
     margin-right: 10px;
 }
 
-#logo {
-    max-height: 50px;
+#menuBtn:hover #menu {
+    display: block;
 }
 
-#content {
-    color:black;
+#menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: 1%;
+}
+
+#menu a {
+    display: block;
+    padding:15px;
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+#menu a:hover{
+    background-color: black;
+}
+
+#logo {
+    max-height: 50px;
 }

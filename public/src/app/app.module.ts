@@ -11,6 +11,11 @@ import { DatabaseService } from './database.service';
 import { SwordBuilderComponent } from './sword-builder/sword-builder.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { PremadesComponent } from './premades/premades.component';
+import { AdminToolsComponent } from './admin-tools/admin-tools.component';
+import { PartMakerComponent } from './admin-tools/partMaker/partMaker.component';
+import { PartListerComponent } from './admin-tools/partLister/partLister.component';
 
 @NgModule({
    declarations: [
@@ -18,7 +23,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       PartModalComponent,
       SwordBuilderComponent,
       LandingPageComponent,
-      PageNotFoundComponent
+      PageNotFoundComponent,
+      UserLoginComponent,
+      PremadesComponent,
+      AdminToolsComponent,
+      PartMakerComponent,
+      PartListerComponent,
    ],
    imports: [
       BrowserModule,

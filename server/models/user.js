@@ -5,6 +5,9 @@ let OrderSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    imageURL:{
+        type:String,
+    },
     totalPrice:{
         type:Number,
     },
@@ -55,6 +58,10 @@ let UserSchema = new mongoose.Schema({
     password:{
         type: String,
         required: true,
+    },
+    accessLevel:{
+        type:Number,
+        default: 1,
     },
     notes:{
         type: String,
