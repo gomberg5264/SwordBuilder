@@ -1,3 +1,9 @@
-<p>
-  partLister works!
-</p>
+<div class="partlister">
+  <h4>Existing {{partType}}s</h4>
+  <div *ngFor="let part of partList">
+    <h5>
+      {{part.name}}
+    </h5>
+    <p>{{part.geometrySrc}}</p>
+  </div>
+</div>

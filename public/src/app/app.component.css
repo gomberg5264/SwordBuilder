@@ -18,6 +18,12 @@
     margin-bottom: auto;
 }
 
+@media (max-width:375px){
+    h1{
+        font-size: 120%;
+    }
+}
+
 #menuBtn {
     float: right;
 }

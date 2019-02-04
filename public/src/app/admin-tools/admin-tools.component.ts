@@ -10,18 +10,18 @@ export class AdminToolsComponent implements OnInit {
 
   errors:any;
   partTypeList:any;
-  allBlades:any;
-  allGuards:any;
-  allGrips:any;
-  allPommels:any;
 
   constructor(
     private _db: DatabaseService,
   ) { }
 
   ngOnInit() {
-    this.partTypeList=["blade","guard","grip","pommel"];
-    console.log("initializing admin tools");
+    //partTypeList feeds strings for db request filtering to the components. Add more fields to array elements for more functionality, i.e. updating stuff in real time
+    this.partTypeList=[
+      {type:"blade"},
+      {type:"guard"},
+      {type:"grip"},
+      {type:"pommel"}];
   }
 
 }

@@ -11,7 +11,7 @@ export class PartModalComponent implements OnChanges {
   @Input() partType: string;
   @Input() currentSetup: [];
   @Output() modalStat = new EventEmitter();
-  partList = [];
+  partList: any;
   resetSetup: [];
   listingBlades = false;
 
@@ -22,24 +22,14 @@ export class PartModalComponent implements OnChanges {
   ngOnChanges() {
     this.partList=[];
     this.resetSetup=this.currentSetup;
-
-    this.listingBlades=false;
-    
-    if (this.partType=="blade"){
-      this.listingBlades=true
-      this.partList = this._partFetch.getAllBlades().blades;
-    }
-    else if (this.partType=="guard"){
-      this.partList = this._partFetch.getAllGuards().guards;
-    }
-    else if (this.partType=="grip"){
-      this.partList = this._partFetch.getAllGrips().grips;
-    }
-    else if (this.partType=="pommel"){
-      this.partList = this._partFetch.getAllPommels().pommels;
-    }
-    else {
-      this.partList=[];
+    //this variable is for styling purposes
+    this.listingBlades=(this.partType=="blade");
+    //populate from DB.
+    if (this.partType!=undefined){
+      let observe = this._partFetch.getAllParts(this.partType);
+      observe.subscribe(data=>{
+        this.partList=data;
+      });
     }
     
   }
@@ -52,13 +42,9 @@ export class PartModalComponent implements OnChanges {
     else {idx=3};
     this.currentSetup[`${idx}`]=file.geometrySrc;
 
-
-    console.log(this.currentSetup);
     let offset = null;
     if (this.partType=="grip"){
-      offset=file.gripOffset;
-      console.log(offset);
-      
+      offset=file.gripLength;
     }
     this._swordServ.swordLoader(this.currentSetup,offset);
     

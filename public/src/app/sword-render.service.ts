@@ -140,6 +140,8 @@ export class SwordRenderService {
         if (swordGeo[0]!=this.sword.swordGeo[0]){
             this.sword.swordGeo[0]=swordGeo[0]
         }
+        console.log("Grip offset in the render service:"+gripOffset);
+        
         if (gripOffset!=null){
             this.sword.gripOffset=gripOffset;
         }

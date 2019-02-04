@@ -18,6 +18,8 @@ export class PartListerComponent implements OnInit {
     let observe = this._db.getAllParts(this.partType);
     observe.subscribe(data=>{
       this.partList=data;
+      // console.log(data);
+      
     });
   }
 

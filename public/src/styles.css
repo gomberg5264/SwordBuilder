@@ -8,6 +8,29 @@
 }
 
 
+.mainWrapper h3{
+    border-top: 1px solid black;
+    padding-top: 30px;
+    text-transform: capitalize;
+}
+
+.mainWrapper * * h4{
+    margin-top:20px;
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+
+h5 {
+    margin-top:10px;
+    margin-bottom: 4px;
+    font-size: 110%;
+}
+
+.partmaker, .partlister {
+    border-top: solid black 1px;
+    padding:15px;
+}
+
 
 @font-face {
     font-family: "Elixir";

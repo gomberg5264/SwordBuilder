@@ -47,8 +47,15 @@ module.exports = {
             else {
                 let part = new Part(req.body);
                 part.save((err) => {
-                    if (err) { res.json(err); }
-                    else { res.json({ message: "Successfully added a new " + req.params.part }); }
+                    if (err) {
+                        console.log(err);
+                        res.json(err);
+                    }
+                    else {
+                        console.log("All good.");
+                        
+                        res.json({ message: "Successfully added a new " + req.params.part });
+                    }
                 });
             }
 

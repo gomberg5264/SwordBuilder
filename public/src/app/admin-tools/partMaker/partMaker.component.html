@@ -13,7 +13,9 @@
 
     <h5>Sword Type</h5>
     <select name="currentPart.swordType" [(ngModel)]="currentPart.swordType">
-      <option value="armingSword">Arming Sword</option>
+
+      <option value="any" selected="selected">Any sword Type</option>
+      <option value="armingSword">One-handed sword</option>
       <option value="longsword">Longsword</option>
       <option value="sabre">Sabre</option>
       <option value="greatsword">Greatsword</option>
@@ -26,12 +28,13 @@
 
     <div *ngIf="partType=='blade'">
       <h5>Purpose</h5>
-      <select name="purpose">
-        <option value="cutting">Test cutting</option>
+      <select name="currentPart.purpose" [(ngModel)]="currentPart.purpose">
+        <option value="cutting" selected="selected">Test cutting</option>
         <option value="hema">HEMA Sparring</option>
         <option value="sca">SCA armoured combat</option>
         <option value="stage">Stage combat</option>
       </select>
+      <span *ngIf="errors.purpose">{{errors.purpose}}</span>
 
       <h5>Maximum Length</h5>
       <input type="number" name="currentPart.maxLength" [(ngModel)]="currentPart.maxLength">
@@ -54,6 +57,7 @@
         <option value="simple wire">Simple wire wrap</option>
         <option value="elaborate wire">Decorative wire wrap</option>
       </select>
+      <span *ngIf="errors.material">{{errors.material}}</span>
     </div>
 
 
@@ -66,7 +70,7 @@
     <input type="text" name="currentKeyword" [(ngModel)]="currentKeyword">
     <span *ngIf="errors.currentKeyword">{{errors.currentKeyword}}</span>
     <button type="button" (click)=addKeyWord()>Add keyword</button>
-    <button type="button">Clear keywords</button>
+    <button type="button" (click)=clearKeywords()>Clear keywords</button>
 
     <h5>Image</h5>
     <input type="text" name="currentPart.imageURL" [(ngModel)]="currentPart.imageURL">

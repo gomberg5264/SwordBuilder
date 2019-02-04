@@ -14,24 +14,30 @@
     display: block;
 }
 
-.mainWrapper h3{
-    border-top: 1px solid black;
-    padding-top: 30px;
-    text-transform: capitalize;
-}
 
 #content{
     padding-top:60px;
     overflow: auto;
 }
 
-.left, .right {
-    display: inline-block;
-    width:42%;
-    border: 1px red solid;
+@media (min-width:490px){
+    .left, .right {
+        display: inline-block;
+        width:49%;
+    }
+    
+    .partToolsWrap{
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
-.partToolsWrap{
-    display: flex;
-    justify-content: space-evenly;
+@media (max-width:489px){
+    .partToolsWrap{
+        display: block;
+    }
+    .left, .right{
+        display: block;
+        width: 100%;
+    }
 }

@@ -16,6 +16,29 @@ export class PartMakerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.setCurrentToBlank();
+    this.errors={};
+  }
+  
+  submitPart(){
+    //first check there are no validation issues and STAY ON THE PAGE with all fields populated if there are
+    if (this.validatePartInput()){
+      let observe = this._db.makeNewPart(this.partType, this.currentPart)
+      observe.subscribe(data=>{
+        //if the db returns issues, i.e. duplicate errors, this is fired up, and the fields stay populated
+        if(data['errors']){
+          this.errors.database=data['error']['message'];
+        }
+        else {
+          //Success! Needs to update the list in the other component though
+          this.setCurrentToBlank();
+        }
+      });
+    };
+  }
+
+  setCurrentToBlank(){
+    //used for creating new parts, as opposed to using the same form for updating existing parts
     this.currentKeyword="";
     this.currentPart={
       swordType:"",
@@ -28,7 +51,7 @@ export class PartMakerComponent implements OnInit {
     }
     switch(this.partType){
       case "blade":
-      this.currentPart.purpose="";
+      this.currentPart.purpose="armingSword";
 
       this.currentPart.maxLength=40;
       
@@ -39,30 +62,15 @@ export class PartMakerComponent implements OnInit {
       break;
       case "grip":
       this.currentPart.gripLength=3;
-
-      this.currentPart.material="";
+      this.currentPart.material="half wrap";
       case "pommel":
       break;
     }
-    this.errors={};
   }
 
-  submitPart(){
-    console.log("Submitting "+this.partType);
-    
-    if (this.validatePartInput()){
-      console.log("Ready to submit "+this.partType);
-      let observe = this._db.makeNewPart(this.partType, this.currentPart)
-      observe.subscribe(data=>{
-        console.log(data);
-        if(data['error']){
-          this.errors.database=data['error'];
-        }
-        else {
-          console.log("Success!");
-        }
-      });
-    };
+  clearKeywords(){
+    //separate method for this, to be expanded for removing specific keywords without emptying the whole list
+    this.currentPart.keyWords=[];
   }
 
   addKeyWord(){
@@ -90,6 +98,9 @@ export class PartMakerComponent implements OnInit {
     if (this.currentPart.geometrySrc.length<4){
       this.errors.geometrySrc="Please add a valid path to an image"
     }
+    if (this.currentPart.swordType.length<3){
+      this.errors.swordType="Please choose a sword type";
+    }
     switch(this.partType){
       case "blade":
       if (this.currentPart.minLength>this.currentPart.maxLength){
@@ -101,6 +112,9 @@ export class PartMakerComponent implements OnInit {
       if (this.currentPart.maxLength>50){
         this.errors.maxLength="A blade this long belongs in fantasy, not HEMA";
       }
+      if (this.currentPart.purpose.length<3){
+        this.errors.purpose="Please choose what your blade is for.";
+      }
       break;
       case "guard":
       break;
@@ -111,19 +125,6 @@ export class PartMakerComponent implements OnInit {
       case "pommel":
       break;
     }
-    console.log(this.errors);
-    console.log(this.errors.length);
-    console.log(this.errors.length<1);
-    console.log(this.errors=={});
-    console.log(this.errors==null);
-    if (this.errors){
-      console.log("Errors.");
-      
-    }
-    
-    
-    
-    
     return (this.errors.length==undefined);
   }
 
