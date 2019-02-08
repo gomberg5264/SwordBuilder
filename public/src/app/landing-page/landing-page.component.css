@@ -1,19 +1,27 @@
 #landing {
-    padding: 30% 0;
+    position: absolute;
     text-align: center;
-}
-h2 {
-    margin: 40px;
-}
-a {
-    text-decoration: none;
-    padding: 20px;
-    border: 1px solid rgb(61, 65, 70);
-    color: rgb(61, 65, 70);
-    background: none;
-    font-weight: bolder;
+    right: 0;
+    left:0;
+    top:30%;
 }
 
-a:hover {
+h2 {
+    margin-bottom: 40px;
+}
+a{
+    text-decoration: none;
+    color: rgb(61, 65, 70);
+    font-weight: bolder;
+}
+#landing div {
+    padding: 20px;
+    border: 1px solid rgb(61, 65, 70);
+    background: none;
+    max-width: 320px;
+    margin: auto;
+}
+
+#landing div:hover {
     box-shadow: 10px 5px 10px rgb(61, 65, 70);
 }

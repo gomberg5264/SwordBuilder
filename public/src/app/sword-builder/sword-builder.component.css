@@ -1,3 +1,9 @@
+@media screen and (orientation: portrait){
+    html{
+        transform: rotate(90deg);
+    }
+}
+
 #swordCanvas {
     position: absolute;
     top: 0;
@@ -30,77 +36,78 @@
     position: static;
 }
 
-#swordPartsMenu {
-    padding-top:60px;
 
-    height: 100%;
-    width: 15%;
+#swordPartsMenu {
     z-index: 2;
     position: absolute;
 }
 
 #swordPartsMenu div {
-    height: 25%;
-    width: 100%;
-    /* position: absolute; */
-    /* background-image: url('/assets/img/sword-img-1.jpg'); */
+    color: white;
     background-color: rgb(61, 65, 70);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding-left: 30px;
-    padding-top: 30px;
-    clip-path: polygon(
-        0% 0,
-        100% 0%,
-        80% 100%,
-        0 100%);
 }
 
 #swordPartsMenu div:hover{
     background-color: rgb(39, 46, 55);
 }
 
-#swordPartsMenu div {
-    color: white;
-    font-size: 120%;
+@media screen and (min-width:768px){
+    #swordPartsMenu {
+        padding-top:60px;
+    
+        height: 100%;
+        width: 15%;
+    }
+    
+    #swordPartsMenu div {
+        height: 25%;
+        width: 100%;
+        font-size: 120%;
+        top: 0%;
+        left: 0%;
+        vertical-align: top;
+        padding: 30px;
+        clip-path: polygon(
+            0% 0,
+            100% 0%,
+            80% 100%,
+            0 100%);
+    }
+    
+    
+    #swordPartsMenu div h3{
+        font-size: 100%;
+        transform: rotate(-90deg);
+        /* margin-top: 30%; */
+        margin: auto;
+        position: relative;
+        /* top:36%;
+        left:-14%; */
+    }
+}
+@media screen and (max-width:767px){
+    #swordPartsMenu {
+        bottom:0;
+        /* display: flex; */
+        justify-content: space-around;
+    }
+
+    #swordPartsMenu div {
+        position: relative;
+        display: inline-block;
+        width: 20%;
+        padding: 20px 0;
+    }
+
+    #swordPartsMenu div h3{
+
+    }
 }
 
-.bladeSelect {
-    /* background-color: red; */
-    top: 0%;
-    left: 0%;
-    /* clip-path: ellipse(130px 140px at 10% 20%); */
-    /* text-align: left; */
-    vertical-align: top;
-}
 
-.guardSelect {
-    /* background-color: blue; */
-    top:0%;
-    right: 0%;
-    /* clip-path: ellipse(130px 140px at 90% 20%); */
-    /* text-align: right; */
-    vertical-align: top;
-}
-
-.gripSelect {
-    /* background-color: green; */
-    bottom: 0%;
-    right: 0%;
-    /* clip-path: ellipse(130px 140px at 90% 80%); */
-    /* text-align: right; */
-    vertical-align: bottom;
-}
-
-.pommelSelect {
-    /* background-color: yellow; */
-    bottom:0%;
-    left: 0%;
-    /* clip-path: ellipse(130px 140px at 10% 80%); */
-    /* text-align: left; */
-    vertical-align: bottom;
-}
 
 .part-modal {
     display: none;

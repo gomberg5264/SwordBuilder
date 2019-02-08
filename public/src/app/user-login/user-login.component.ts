@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
+  logingIn=true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  flip(){
+    if (this.logingIn) {
+      this.logingIn=false;
+    }
+    else{
+      this.logingIn=true;
+    }
   }
 
 }

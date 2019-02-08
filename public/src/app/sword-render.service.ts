@@ -161,8 +161,6 @@ export class SwordRenderService {
                 this.scene.add(this.sword.parts[0]);
                 for (let i = 1; i < swordGeo.length; i++) {
                     this.loader.load(swordGeo[i], (part) => {
-                        console.log("local part:"+ swordGeo[i]);
-                        
                         this.scene.remove(this.sword.parts[i]);
                         console.log(part);
 

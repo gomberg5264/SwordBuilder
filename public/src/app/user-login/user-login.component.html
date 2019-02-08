@@ -1,17 +1,17 @@
-<div class="userAccessWrap loginWrap">
+<div class="userAccessWrap loginWrap" *ngIf="logingIn">
   <h2>Please Log In</h2>
   <form>
     <input type="text" placeholder="E-mail">
     <input type="password" placeholder="Password">
   </form>
   <div>
-    <button type="button">Create an account</button>
-    <button type="button">Log In</button>
+    <button type="button" (click)=flip()>Create an account</button>
+    <button type="button" class="proceedBtn">Log In</button>
   </div>
 
 </div>
 
-<div class="userAccessWrap registerWrap">
+<div class="userAccessWrap registerWrap" *ngIf="!logingIn">
   <h2>Please Register</h2>
   <form>
     <input type="text" placeholder="First Name">
@@ -20,6 +20,8 @@
     <input type="password" placeholder="Password">
     <input type="password" placeholder="Re-enter Confirm Password">
   </form>
-  <button type="button" class="switchToLog">Log in instead</button>
-  <button type="button">Log In</button>
+  <div>
+    <button type="button" (click)=flip()>Log in instead</button>
+    <button type="button" class="proceedBtn">Register</button>
+  </div>
 </div>
