@@ -59,7 +59,7 @@
         padding-top:60px;
     
         height: 100%;
-        width: 15%;
+        width: 7%;
     }
     
     #swordPartsMenu div {
@@ -80,7 +80,7 @@
     
     #swordPartsMenu div h3{
         font-size: 100%;
-        transform: rotate(-90deg);
+        transform: rotate(-90deg) translateX(-126%);
         /* margin-top: 30%; */
         margin: auto;
         position: relative;
@@ -115,6 +115,6 @@
     z-index: 1;
     left:0;
     height: 100%;
-    width: 60%;
+    width: 46%;
     top:0;
 }
